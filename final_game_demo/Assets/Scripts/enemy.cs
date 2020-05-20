@@ -62,7 +62,7 @@ public class enemy : MonoBehaviour
         //direction that we should go, the currentwaypoint minus the rb.position, normalized, resulting in a vector towards a target 
         Vector2 direction = ((Vector2)path.vectorPath[currentwaypoint] - rb.position).normalized;
         //this is a debug statement, we will use Mathf.Round when rotating the bug sprite and playing appropriate animations 
-        Debug.Log("x: " + Mathf.Round(direction.x)  + " y: " + Mathf.Round(direction.y));
+        //Debug.Log("x: " + Mathf.Round(direction.x)  + " y: " + Mathf.Round(direction.y));
         //create force to direction times the speed and times Time.deltaTime so it is stable with changing framerates
         Vector2 force = direction * speed * Time.deltaTime;
         //apply the force so the bug actually moves 
