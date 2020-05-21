@@ -111,6 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3274af1d0359490439302abeee1283f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showing: 0
-  basicpanel: {fileID: 3772439714424251195, guid: c0638fb4cc56f11428eda752aba5f1eb,
+  onebuttontext: {fileID: 249694804143678769, guid: 7643ec4447812754ba5db7359fa8d2ff,
     type: 3}
+  twobuttontext: {fileID: 0}
+  towertypetext: {fileID: 7433901446869891187, guid: 8197e155463021b47812a90bf8e73b0e,
+    type: 3}
+  view: 0
+  pathone: 0
+  pathtwo: 0
