@@ -33,8 +33,8 @@ public class ground : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (plantable && tooclose == false) {
-            if (GameManager.current == "poision")
+        if (plantable) {
+            if (GameManager.current == "poison")
             {
                 Instantiate(poision, mouseposscreen, transform.rotation);
             }

@@ -11,11 +11,12 @@ using UnityEngine.Rendering;
  */ 
 public class enemy : MonoBehaviour
 {
+    public float health = 5f; 
     // target, often end goal for the enemy 
     public Transform target;
     public float speed = 200f;
     //distance to next way point before making directional changes 
-    public float nextwaypointdist = 3f;
+    public float nextwaypointdist = 1f;
     //path using Pathfinding consists of multiple waypoints 
     Path path;
     //current way point in the path that this enemy is on 
@@ -72,6 +73,24 @@ public class enemy : MonoBehaviour
         //if we are closer than the nextwaypointdist, start heading for the next waypoint 
         if (distance < nextwaypointdist) {
             currentwaypoint++; 
+        }
+    }
+
+    private void Update()
+    {
+        if (health < 0) {
+            Destroy(this.gameObject); 
+        }
+
+ 
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            Destroy(collision.gameObject);
+            health -= 2f;
         }
     }
 }

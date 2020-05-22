@@ -16,72 +16,114 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         towertypetext.text = towertype;
-        if (towertype == "basic") {
-            if (selected.GetComponent<basictower>().pathone == 0) {
+        if (towertype == "poison") {
+            if (selected.GetComponent<poisontower>().pathone == 0) {
                 onebuttontext.text = "Double Range (75)"; 
             }
-            if (selected.GetComponent<basictower>().pathone == 1) {
+            if (selected.GetComponent<poisontower>().pathone == 1) {
                 onebuttontext.text = "Double Range (150)"; 
             }
-            if (selected.GetComponent<basictower>().pathone == 2) {
+            if (selected.GetComponent<poisontower>().pathone == 2) {
                 onebuttontext.text = "Slow Bugs 1/4 (400)"; 
             }
-            if (selected.GetComponent<basictower>().pathone == 3) {
+            if (selected.GetComponent<poisontower>().pathone == 3) {
                 onebuttontext.text = "Up Range, Slow (500)"; 
             }
-            if (selected.GetComponent<basictower>().pathone == 4) {
+            if (selected.GetComponent<poisontower>().pathone == 4) {
                 onebuttontext.text = "MAX LEVEL"; 
             }
+            if (selected.GetComponent<poisontower>().pathtwo == 0) {
+                twobuttontext.text = "Increase Damage (100)"; 
+            }
+            if (selected.GetComponent<poisontower>().pathtwo == 1) {
+                twobuttontext.text = "Increase Damage (200)";
+            }
+            if (selected.GetComponent<poisontower>().pathtwo == 2) {
+                twobuttontext.text = "Increase Damage (300)"; 
+            }
+            if (selected.GetComponent<poisontower>().pathtwo == 3) {
+                twobuttontext.text = "Increase Damage (400)"; 
+            }
+            if (selected.GetComponent<poisontower>().pathtwo == 4) {
+                twobuttontext.text = "MAX LEVEL"; 
+            }
+        }
+        if (towertype == "basic") {
+            if (selected.GetComponent<basictower>().direction == 4) {
+                selected.GetComponent<basictower>().direction = 0; 
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                Debug.Log(selected.GetComponent<basictower>().direction);
+                selected.GetComponent<basictower>().direction += 0.5;
+                Debug.Log(selected.GetComponent<basictower>().direction); 
+                
+            }
+            
         }
         
     }
 
     public void click() { 
-        if(towertype == "basic")
+        if(towertype == "poison")
         {
-            if (selected.GetComponent<basictower>().pathone == 0) {
-                selected.GetComponent<basictower>().radius += 5;
+            if (selected.GetComponent<poisontower>().pathone == 0) {
+                selected.GetComponent<poisontower>().radius += 1;
                 money -= 500;
-                selected.GetComponent<basictower>().pathone++;
+                selected.GetComponent<poisontower>().pathone++;
                 return; 
             }
-            if (selected.GetComponent<basictower>().pathone == 1) {
-                selected.GetComponent<basictower>().radius += 10;
+            if (selected.GetComponent<poisontower>().pathone == 1) {
+                selected.GetComponent<poisontower>().radius += 2;
                 money -= 1250;
-                selected.GetComponent<basictower>().pathone++;
+                selected.GetComponent<poisontower>().pathone++;
                 return; 
             }
-            if (selected.GetComponent<basictower>().pathone == 2) {
-                selected.GetComponent<basictower>().radius += 15;
-                selected.GetComponent<basictower>().slowenemy = true; 
+            if (selected.GetComponent<poisontower>().pathone == 2) {
+                selected.GetComponent<poisontower>().radius += 1;
+                selected.GetComponent<poisontower>().slowenemy = true; 
                 money -= 1750;
-                selected.GetComponent<basictower>().pathone++;
+                selected.GetComponent<poisontower>().pathone++;
                 return; 
             }
-            if (selected.GetComponent<basictower>().pathone == 3) {
-                selected.GetComponent<basictower>().radius += 20;
+            if (selected.GetComponent<poisontower>().pathone == 3) {
+                selected.GetComponent<poisontower>().radius += 2;
                 money -= 2500;
-                selected.GetComponent<basictower>().pathone++;
+                selected.GetComponent<poisontower>().pathone++;
                 return; 
             }
         }
     }
 
     public void clicktwo() {
-        if (towertype == "basic") {
-            if (selected.GetComponent<basictower>().pathtwo == 0) {
+        if (towertype == "poison") {
+            if (selected.GetComponent<poisontower>().pathtwo == 0) {
+                selected.GetComponent<poisontower>().damage += 0.01f;
+                money -= 100;
+                selected.GetComponent<poisontower>().pathtwo++; 
                 return; 
             }
-            if (selected.GetComponent<basictower>().pathtwo == 1) {
+            if (selected.GetComponent<poisontower>().pathtwo == 1) {
+                selected.GetComponent<poisontower>().damage += 0.02f;
+                money -= 200;
+                selected.GetComponent<poisontower>().pathtwo++; 
                 return; 
             }
-            if (selected.GetComponent<basictower>().pathtwo == 2) {
+            if (selected.GetComponent<poisontower>().pathtwo == 2) {
+                selected.GetComponent<poisontower>().damage += 0.01f;
+                money -= 300;
+                selected.GetComponent<poisontower>().pathtwo++; 
                 return; 
             }
-            if (selected.GetComponent<basictower>().pathtwo == 3) {
+            if (selected.GetComponent<poisontower>().pathtwo == 3) {
+                selected.GetComponent<poisontower>().damage += 0.02f;
+                money -= 400;
+                selected.GetComponent<poisontower>().pathtwo++; 
                 return; 
             }
         }
     }
+
+  
 }
 
