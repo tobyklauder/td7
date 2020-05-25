@@ -49,13 +49,13 @@ public class GameManager : MonoBehaviour
             }
         }
         if (towertype == "basic") {
-            if (selected.GetComponent<basictower>().direction == 4) {
+            if (selected.GetComponent<basictower>().direction == 8) {
                 selected.GetComponent<basictower>().direction = 0; 
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Debug.Log(selected.GetComponent<basictower>().direction);
-                selected.GetComponent<basictower>().direction += 0.5;
+                selected.GetComponent<basictower>().direction += 1;
                 Debug.Log(selected.GetComponent<basictower>().direction); 
                 
             }
