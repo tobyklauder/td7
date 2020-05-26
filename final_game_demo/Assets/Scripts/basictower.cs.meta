@@ -3,7 +3,18 @@ guid: de386e53cdf0b3a47812b89f330866d1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - west: {instanceID: 0}
+  - northwest: {instanceID: 0}
+  - north: {instanceID: 0}
+  - northeast: {instanceID: 0}
+  - east: {instanceID: 0}
+  - southeast: {instanceID: 0}
+  - south: {instanceID: 0}
+  - southwest: {instanceID: 0}
+  - bullet: {instanceID: 0}
+  - bulletshoot: {instanceID: 0}
+  - render: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
