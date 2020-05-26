@@ -878,6 +878,8 @@ MonoBehaviour:
   WaveCounter: 0
   WaveMax: 0
   EnemyCounter: 0
+  EStag: 3
+  timeBetweenWaves: 5
 --- !u!4 &1420650691
 Transform:
   m_ObjectHideFlags: 0

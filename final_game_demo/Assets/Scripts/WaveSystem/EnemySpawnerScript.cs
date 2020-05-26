@@ -8,25 +8,22 @@ public class EnemySpawnerScript : MonoBehaviour
     public GameObject Enemy;
     public GameObject Enemy2;
     public GameObject Enemy3;
-    //float randX;
-    //float randY;
     Vector2 whereToSpawn;
     public float WaveCounter;
     public int WaveMax;
     public int EnemyCounter;
+    public float EStag;
+    public float timeBetweenWaves = 5f;
+    private float countdown = 2f;
     int i;
     int p1;
     int p2;
     int p3;
-    //public float x1;
-    //public float x2;
-    //public float y1;
-    //public float y2;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //SET IT SO THAT THIS ALL STARTS IF THE PLAYER CLICKS A BUTTON
         WaveCounter = 0;
         WaveMax = 20;
         WaveSystem();
@@ -35,9 +32,24 @@ public class EnemySpawnerScript : MonoBehaviour
         p1 = 3;
     }
 
-    void WaveSystem()
+    void spawnEnemy(int type)
     {
+        if (type == 1)
+        {
+            Instantiate(Enemy, whereToSpawn, Quaternion.identity);
+        }
+        else if (type == 2)
+        {
+            Instantiate(Enemy2, whereToSpawn, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(Enemy3, whereToSpawn, Quaternion.identity);
+        }
+    }
 
+    IEnumerator WaveSystem()
+    {
         if (WaveCounter <= 20)
         {
             whereToSpawn = new Vector2(-11, 4);
@@ -46,7 +58,8 @@ public class EnemySpawnerScript : MonoBehaviour
             {
                 for (i = 0; i < p3; i++)
                 {
-                    Instantiate(Enemy, whereToSpawn, Quaternion.identity);
+                    spawnEnemy(1);
+                    yield return new WaitForSeconds(EStag);
                 }
                 p3 += 3;
             }
@@ -57,20 +70,23 @@ public class EnemySpawnerScript : MonoBehaviour
                 {
                     for (i = 0; i < p1; i++)
                     {
-                        Instantiate(Enemy2, whereToSpawn, Quaternion.identity);
+                        spawnEnemy(2);
+                        yield return new WaitForSeconds(EStag);
                     }
                 }
                 else if (WaveCounter > 7 && WaveCounter <= 12)
                 {
                     for (i = 0; i <= p1; i++)
                     {
-                        Instantiate(Enemy2, whereToSpawn, Quaternion.identity);
+                        spawnEnemy(2);
+                        yield return new WaitForSeconds(EStag);
                     }
                     p1 += 1;
 
                     for (i = 0; i < p2; i++)
                     {
-                        Instantiate(Enemy, whereToSpawn, Quaternion.identity);
+                        spawnEnemy(1);
+                        yield return new WaitForSeconds(EStag);
                     }
                     p2 += 2;
                 }
@@ -82,7 +98,8 @@ public class EnemySpawnerScript : MonoBehaviour
                 {
                     for (i = 0; i < p1; i++)
                     {
-                        Instantiate(Enemy3, whereToSpawn, Quaternion.identity);
+                        spawnEnemy(3);
+                        yield return new WaitForSeconds(EStag);
                     }
                     p1 += 1;
                 }
@@ -90,14 +107,16 @@ public class EnemySpawnerScript : MonoBehaviour
                 {
                     for (i = 0; i < p1; i++)
                     {
-                        Instantiate(Enemy3, whereToSpawn, Quaternion.identity);
+                        spawnEnemy(3);
+                        yield return new WaitForSeconds(EStag);
                     }
                     p1 += 1;
                     Debug.Log(p1);
 
                     for (i = 0; i < p2; i++)
                     {
-                        Instantiate(Enemy2, whereToSpawn, Quaternion.identity);
+                        spawnEnemy(2);
+                        yield return new WaitForSeconds(EStag);
                     }
                     p2 += 2;
                 }
@@ -105,7 +124,8 @@ public class EnemySpawnerScript : MonoBehaviour
                 {
                     for (i = 0; i <= p1 - 1; i++)
                     {
-                        Instantiate(Enemy3, whereToSpawn, Quaternion.identity);
+                        spawnEnemy(3);
+                        yield return new WaitForSeconds(EStag);
                     }
                     p1 += 1;
                     Debug.Log(p1);
@@ -113,7 +133,8 @@ public class EnemySpawnerScript : MonoBehaviour
                     //Enemy 2 increases by2 each time
                     for (i = 0; i < p2; i++)
                     {
-                        Instantiate(Enemy2, whereToSpawn, Quaternion.identity);
+                        spawnEnemy(2);
+                        yield return new WaitForSeconds(EStag);
                     }
                     p2 += 2;
 
@@ -121,7 +142,8 @@ public class EnemySpawnerScript : MonoBehaviour
                     {
                         for (i = 0; i < p3; i++)
                         {
-                            Instantiate(Enemy, whereToSpawn, Quaternion.identity);
+                            spawnEnemy(1);
+                            yield return new WaitForSeconds(EStag);
                         }
                         p3 += 3;
                     }
@@ -129,10 +151,9 @@ public class EnemySpawnerScript : MonoBehaviour
             }
             else if (WaveCounter <= 20)
             {
-                Instantiate(Enemy2, whereToSpawn, Quaternion.identity);
+                spawnEnemy(2);
+                yield return new WaitForSeconds(EStag);
             }
-
-            //Instantiate(Enemy, whereToSpawn, Quaternion.identity);
         }
     }
 
@@ -149,7 +170,7 @@ public class EnemySpawnerScript : MonoBehaviour
         else if (EnemyCounter == 0)
         {
             WaveCounter++;
-            WaveSystem();
+            StartCoroutine(WaveSystem());
 
             if (WaveCounter == 12)
             {
