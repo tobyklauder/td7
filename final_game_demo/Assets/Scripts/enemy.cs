@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 /* enemy.cs
- * Last Edit: Toby Klauder, 9:09 AM, 5/19/2020
- * Description: handles pathfinding 
- * 
- */ 
+* Last Edit: Toby Klauder, 9:09 AM, 5/19/2020
+* Description: handles pathfinding 
+* 
+*/
 public class enemy : MonoBehaviour
 {
     public float health = 5f; 
@@ -82,6 +83,8 @@ public class enemy : MonoBehaviour
             Destroy(this.gameObject); 
         }
 
+       
+
  
     }
 
@@ -91,6 +94,10 @@ public class enemy : MonoBehaviour
         {
             Destroy(collision.gameObject);
             health -= 2f;
+        }
+        if (collision.gameObject.tag == "Finish") {
+            GameManager.health--;
+            Debug.Log("enemy arrived, siphoning health"); 
         }
     }
 }

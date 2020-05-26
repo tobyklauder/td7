@@ -5,16 +5,19 @@ using UnityEngine;
 using UnityEngine.UI; 
 public class GameManager : MonoBehaviour
 {
+    public static int health = 100; 
+    public Text healthtext; 
     public static GameObject selected; 
     public int money = 500; 
     public Text onebuttontext;
     public Text twobuttontext;
     public Text towertypetext;
-    public static string current = "basic";
+    public static string current = " ";
     public static string towertype = "";
 
     void Update()
     {
+        healthtext.text = "Health: " + health;
         towertypetext.text = towertype;
         if (towertype == "poison") {
             if (selected.GetComponent<poisontower>().pathone == 0) {
@@ -124,6 +127,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-  
+    public void enablebasic() {
+        current = "basic"; 
+    }
+    public void enablepoison() {
+        current = "poison"; 
+    }
+    
+
+
 }
 
