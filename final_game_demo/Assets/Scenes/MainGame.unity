@@ -630,7 +630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 128.1, y: -58.3}
+  m_AnchoredPosition: {x: 128.1, y: -62.90001}
   m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648240995
@@ -878,8 +878,8 @@ MonoBehaviour:
   WaveCounter: 0
   WaveMax: 0
   EnemyCounter: 0
-  EStag: 3
-  timeBetweenWaves: 5
+  EStag: 1
+  timeBetweenWaves: 2
 --- !u!4 &1420650691
 Transform:
   m_ObjectHideFlags: 0
@@ -1288,7 +1288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 105, y: -35.300003}
+  m_AnchoredPosition: {x: 105, y: -39.9}
   m_SizeDelta: {x: 203.8, y: 70.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145327295

@@ -169,15 +169,19 @@ public class EnemySpawnerScript : MonoBehaviour
 
         else if (EnemyCounter == 0)
         {
-            WaveCounter++;
-            StartCoroutine(WaveSystem());
-
-            if (WaveCounter == 12)
+            if (countdown <= 0f)
             {
-                p3 = 3;
-                p1 = 3;
-                p2 = 2;
+                WaveCounter++;
+                StartCoroutine(WaveSystem());
+                countdown = timeBetweenWaves;
+                if (WaveCounter == 12)
+                {
+                    p3 = 3;
+                    p1 = 3;
+                    p2 = 2;
+                }
             }
+            countdown -= Time.deltaTime;
         }
     }
 }
