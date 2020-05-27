@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 864913298117071392}
   - component: {fileID: 7454896933360890637}
   - component: {fileID: 4045869286163698505}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bladetower
   m_TagString: tower
   m_Icon: {fileID: 0}

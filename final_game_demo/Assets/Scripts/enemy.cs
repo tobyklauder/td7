@@ -5,6 +5,8 @@ using UnityEngine;
 using Pathfinding;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEditor.Experimental.GraphView;
+using System;
 /* enemy.cs
 * Last Edit: Toby Klauder, 9:09 AM, 5/19/2020
 * Description: handles pathfinding 
@@ -12,6 +14,12 @@ using UnityEngine.UI;
 */
 public class enemy : MonoBehaviour
 {
+    public Animator anim;
+    public Sprite left;
+    public Sprite right;
+    public Sprite down;
+    public Sprite up;
+    public SpriteRenderer render; 
     public float health = 5f; 
     // target, often end goal for the enemy 
     public Transform target;
@@ -32,8 +40,10 @@ public class enemy : MonoBehaviour
     void Start()
     {
         //grab the seeker component 
+        anim = GetComponent<Animator>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        render = GetComponent<SpriteRenderer>(); 
 
         seeker.StartPath(rb.position, target.position, OnPathComplete); 
     }
@@ -65,6 +75,21 @@ public class enemy : MonoBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentwaypoint] - rb.position).normalized;
         //this is a debug statement, we will use Mathf.Round when rotating the bug sprite and playing appropriate animations 
         //Debug.Log("x: " + Mathf.Round(direction.x)  + " y: " + Mathf.Round(direction.y));
+        if (Mathf.Round(direction.x) == 0 && Mathf.Round(direction.y) == 1)
+        {
+            render.sprite = up; 
+        }
+        else if (Mathf.Round(direction.x) == 0 && Mathf.Round(direction.y) == -1)
+        {
+            render.sprite = down; 
+        }
+        else if (Mathf.Round(direction.x) == -1 && Mathf.Round(direction.y) == 0)
+        {
+            render.sprite = left; 
+        }
+        else if (Mathf.Round(direction.x) == 1 && Mathf.Round(direction.y) == 0) {
+            render.sprite = right; 
+        }
         //create force to direction times the speed and times Time.deltaTime so it is stable with changing framerates
         Vector2 force = direction * speed * Time.deltaTime;
         //apply the force so the bug actually moves 
