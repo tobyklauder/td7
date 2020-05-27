@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.UI; 
 public class GameManager : MonoBehaviour
 {
-    public static int health = 100; 
-    public Text healthtext; 
+    public static AudioSource audioSource;
+    public static int health = 10;
     public static GameObject selected; 
     public int money = 500; 
     public Text onebuttontext;
@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        healthtext.text = "Health: " + health;
         towertypetext.text = towertype;
         if (towertype == "poison") {
             if (selected.GetComponent<poisontower>().pathone == 0) {

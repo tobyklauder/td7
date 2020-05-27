@@ -189,3 +189,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f39022a04e6c234eaaf27966e6a44d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  loseLifeClip: {fileID: 8300000, guid: 039fec0a1d9ac8d4bbf595c191f3aa8d, type: 3}
