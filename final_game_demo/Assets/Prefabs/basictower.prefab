@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 14674a76cc0087b489fc1ddf78ecd3df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a27e66d1a321f3440aa40223c1752e1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,14 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de386e53cdf0b3a47812b89f330866d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  west: {fileID: 21300000, guid: 14674a76cc0087b489fc1ddf78ecd3df, type: 3}
-  northwest: {fileID: 21300000, guid: 056b77d5aa6947a43b4e5ba81f828369, type: 3}
-  north: {fileID: 21300000, guid: ab41993e93aa0f84cb663b77f510f222, type: 3}
-  northeast: {fileID: 21300000, guid: 29f811309e140ce488c45fd32329d25c, type: 3}
-  east: {fileID: 21300000, guid: 3fef4a90fb083304aabb638d94cdd300, type: 3}
-  southeast: {fileID: 21300000, guid: ff5736fb03b557a42a4da7b988a66bb5, type: 3}
-  south: {fileID: 21300000, guid: d2dfb66b8195e654a882a2a3f3ab7828, type: 3}
-  southwest: {fileID: 21300000, guid: ed301cfd80572604b8d6368aab3b1ab8, type: 3}
+  west: {fileID: 21300000, guid: a27e66d1a321f3440aa40223c1752e1a, type: 3}
+  northwest: {fileID: 21300000, guid: d390f61f5de67e447927e3f56fe5a246, type: 3}
+  north: {fileID: 21300000, guid: 68e04c011e21bf84bbb4133fa6299e8e, type: 3}
+  northeast: {fileID: 21300000, guid: 7589fe6ebbe6cee4387c8e4026e01184, type: 3}
+  east: {fileID: 21300000, guid: b2928b055dd700c47856ae22ecca0d7d, type: 3}
+  southeast: {fileID: 21300000, guid: f4c7e628c5f439d43bae53fb80b4e800, type: 3}
+  south: {fileID: 21300000, guid: afc4affbcde8c7d4fb17821bf924af85, type: 3}
+  southwest: {fileID: 21300000, guid: dec9adc52bb70794597d43fb475c1650, type: 3}
   bullet: {fileID: 5912585031607938826, guid: 6ef24ea88f2ab2243b771aab135f85bb, type: 3}
   bulletSpeed: 10
   bulletshoot: {fileID: 0}
