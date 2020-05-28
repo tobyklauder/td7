@@ -37,13 +37,16 @@ public class ground : MonoBehaviour
             if (GameManager.current == "poison")
             {
                 Instantiate(poision, mouseposscreen, transform.rotation);
+                GameManager.current = ""; 
             }
             else if (GameManager.current == "basic")
             {
                 Instantiate(basic, mouseposscreen, transform.rotation);
+                GameManager.current = ""; 
             }
             else if (GameManager.current == "blade") {
-                Instantiate(blade, mouseposscreen, transform.rotation); 
+                Instantiate(blade, mouseposscreen, transform.rotation);
+                GameManager.current = ""; 
             }
         }
     }
