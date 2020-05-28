@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static AudioSource audioSource;
@@ -14,6 +15,11 @@ public class GameManager : MonoBehaviour
     public Text towertypetext;
     public static string current = " ";
     public static string towertype = "";
+
+    void Start()
+    {
+ 
+    }
 
     void Update()
     {
@@ -132,8 +138,30 @@ public class GameManager : MonoBehaviour
     public void enablepoison() {
         current = "poison"; 
     }
-    
 
+    public void loadGame()
+    {
+        SceneManager.LoadScene("MainGame");
+        GetComponent<musicManager>().playGameTheme();
+    }
+
+    public void loadMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        GetComponent<musicManager>().playMenuTheme();
+    }
+
+    public void loadGameLose()
+    {
+        SceneManager.LoadScene("GameLose");
+        GetComponent<musicManager>().playLoseSound();
+    }
+
+    public void loadGameWin()
+    {
+        SceneManager.LoadScene("GameWin");
+        GetComponent<musicManager>().playWinSound();
+    }
 
 }
 

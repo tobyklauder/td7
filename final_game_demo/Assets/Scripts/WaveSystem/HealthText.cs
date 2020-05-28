@@ -8,11 +8,14 @@ public class HealthText : MonoBehaviour
 {
     public Text healthText;
     private int health;
+
+    public GameManager gameManager; 
+
     //public AudioClip loseSound;
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -23,9 +26,7 @@ public class HealthText : MonoBehaviour
         
         if(health == 0)
         {
-            //GameManager.audioSource.clip = loseSound;
-            //GameManager.audioSource.Play();
-            SceneManager.LoadScene("GameLose");
+            gameManager.loadGameLose();
         }
     }
 }
