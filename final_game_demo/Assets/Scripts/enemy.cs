@@ -120,6 +120,12 @@ public class enemy : MonoBehaviour
             Destroy(collision.gameObject);
             health -= 2f;
         }
+        /*else if (collision.gameObject.tag == "bullet2test")
+        {
+            render.color = Color.red;
+            Destroy(collision.gameObject);
+            health -= 0.5f;     
+        }*/
         if (collision.gameObject.tag == "Finish") {
             GameManager.health--;
             Debug.Log("enemy arrived, siphoning health"); 
