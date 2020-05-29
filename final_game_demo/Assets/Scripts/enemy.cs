@@ -20,7 +20,8 @@ public class enemy : MonoBehaviour
     public Sprite down;
     public Sprite up;
     public SpriteRenderer render; 
-    public float health = 5f; 
+    public float health = 5f;
+    public int mon;
     // target, often end goal for the enemy 
     public Transform target;
     public float speed = 200f;
@@ -45,7 +46,7 @@ public class enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>(); 
 
-        seeker.StartPath(rb.position, target.position, OnPathComplete); 
+        seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
     void OnPathComplete(Path p) {
@@ -105,7 +106,8 @@ public class enemy : MonoBehaviour
     private void Update()
     {
         if (health < 0) {
-            Destroy(this.gameObject); 
+            Destroy(this.gameObject);
+            GameManager.money += mon; 
         }
 
        
@@ -120,12 +122,12 @@ public class enemy : MonoBehaviour
             Destroy(collision.gameObject);
             health -= 2f;
         }
-        /*else if (collision.gameObject.tag == "bullet2test")
+        else if (collision.gameObject.tag == "bullet2test")
         {
             render.color = Color.red;
             Destroy(collision.gameObject);
-            health -= 0.5f;     
-        }*/
+            health -= 1f;     
+        }
         if (collision.gameObject.tag == "Finish") {
             GameManager.health--;
             Debug.Log("enemy arrived, siphoning health"); 

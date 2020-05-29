@@ -13,13 +13,12 @@ public class ground : MonoBehaviour
     public bool tooclose; 
     Vector2 mousepos;
     Collider2D[] collider; 
-    Vector3 mouseposscreen; 
+    Vector3 mouseposscreen;
     // Update is called once per frame
     void Update()
     {
         mouseposscreen = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         mouseposscreen.z += 10;
-        
     }
 
     private void OnMouseEnter()
@@ -38,18 +37,36 @@ public class ground : MonoBehaviour
         if (plantable) {
             if (GameManager.current == "poison")
             {
-                Instantiate(poision, mouseposscreen, transform.rotation);
-                GameManager.current = ""; 
+                if (GameManager.money >= 300)
+                {
+                    GameManager.money -= 300;
+                    Instantiate(poision, mouseposscreen, transform.rotation);
+                    GameManager.current = "";
+                }
+                else
+                    return;
             }
             else if (GameManager.current == "basic")
             {
-                Instantiate(basic, mouseposscreen, transform.rotation);
-                GameManager.current = ""; 
+                if (GameManager.money >= 100)
+                {
+                    GameManager.money -= 100;
+                    Instantiate(basic, mouseposscreen, transform.rotation);
+                    GameManager.current = "";
+                }
+                else
+                    return;
             }
             else if (GameManager.current == "fire") {
-                print("Instantiating a fire tower");
-                Instantiate(fire, mouseposscreen, transform.rotation);
-                GameManager.current = ""; 
+                if (GameManager.money >= 200)
+                {
+                    GameManager.money -= 200;
+                    print("Instantiating a fire tower");
+                    Instantiate(fire, mouseposscreen, transform.rotation);
+                    GameManager.current = "";
+                }
+                else
+                    return;
             }
         }
     }

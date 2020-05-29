@@ -236,6 +236,7 @@ RectTransform:
   - {fileID: 648240994}
   - {fileID: 282404750}
   - {fileID: 116301183}
+  - {fileID: 2008649715}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -739,7 +740,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeSource: {fileID: 269509742}
   upgradeSound: {fileID: 8300000, guid: 56f1ec7d0fecac440b6843eaee6c155a, type: 3}
-  money: 500
   onebuttontext: {fileID: 1646566816}
   twobuttontext: {fileID: 1343257023}
   towertypetext: {fileID: 517224799}
@@ -1086,7 +1086,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeSource: {fileID: 0}
   upgradeSound: {fileID: 0}
-  money: 500
   onebuttontext: {fileID: 0}
   twobuttontext: {fileID: 0}
   towertypetext: {fileID: 0}
@@ -2386,7 +2385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeSource: {fileID: 0}
   upgradeSound: {fileID: 0}
-  money: 500
   onebuttontext: {fileID: 0}
   twobuttontext: {fileID: 0}
   towertypetext: {fileID: 0}
@@ -4102,7 +4100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeSource: {fileID: 1789718259}
   upgradeSound: {fileID: 8300000, guid: 56f1ec7d0fecac440b6843eaee6c155a, type: 3}
-  money: 500
   onebuttontext: {fileID: 0}
   twobuttontext: {fileID: 0}
   towertypetext: {fileID: 0}
@@ -4497,7 +4494,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeSource: {fileID: 0}
   upgradeSound: {fileID: 0}
-  money: 500
   onebuttontext: {fileID: 0}
   twobuttontext: {fileID: 0}
   towertypetext: {fileID: 0}
@@ -4614,6 +4610,96 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2008649714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008649715}
+  - component: {fileID: 2008649718}
+  - component: {fileID: 2008649717}
+  - component: {fileID: 2008649716}
+  m_Layer: 5
+  m_Name: Money Count
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2008649715
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008649714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 92771600}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 124.8, y: -116.2}
+  m_SizeDelta: {x: 250, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2008649716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008649714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df82878205a6799459c1cdfe5467ab72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2008649717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008649714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d1cddb2575a516b45a53d30c6c2da86a, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Money: '
+--- !u!222 &2008649718
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008649714}
+  m_CullTransparentMesh: 0
 --- !u!1 &2030783055
 GameObject:
   m_ObjectHideFlags: 0

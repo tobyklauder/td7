@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public AudioClip upgradeSound;
     public static int health = 10;
     public static GameObject selected; 
-    public int money = 500; 
+    public static int money; 
     public Text onebuttontext;
     public Text twobuttontext;
     public Text towertypetext;
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         upgradeSource.clip = upgradeSound;
+        money = 500;
     }
 
     void Update()
@@ -82,29 +83,48 @@ public class GameManager : MonoBehaviour
         if(towertype == "poison")
         {
             if (selected.GetComponent<poisontower>().pathone == 0) {
-                selected.GetComponent<poisontower>().radius += 1;
-                money -= 500;
-                selected.GetComponent<poisontower>().pathone++;
-                return; 
+                if (money >= 75)
+                {
+                    money -= 75;
+                    selected.GetComponent<poisontower>().radius += 1;
+                    selected.GetComponent<poisontower>().pathone++;
+                    return;
+                }
+                else
+                    return;
             }
             if (selected.GetComponent<poisontower>().pathone == 1) {
-                selected.GetComponent<poisontower>().radius += 2;
-                money -= 1250;
-                selected.GetComponent<poisontower>().pathone++;
-                return; 
+                if (money >= 150)
+                {
+                    money -= 150;
+                    selected.GetComponent<poisontower>().radius += 2;
+                    selected.GetComponent<poisontower>().pathone++;
+                    return;
+                }
+                else
+                    return;
             }
             if (selected.GetComponent<poisontower>().pathone == 2) {
-                selected.GetComponent<poisontower>().radius += 1;
-                selected.GetComponent<poisontower>().slowenemy = true; 
-                money -= 1750;
-                selected.GetComponent<poisontower>().pathone++;
-                return; 
+                if (money >= 400)
+                {
+                    money -= 400;
+                    selected.GetComponent<poisontower>().radius += 1;
+                    selected.GetComponent<poisontower>().slowenemy = true;
+                    selected.GetComponent<poisontower>().pathone++;
+                    return;
+                }
+                
             }
             if (selected.GetComponent<poisontower>().pathone == 3) {
-                selected.GetComponent<poisontower>().radius += 2;
-                money -= 2500;
-                selected.GetComponent<poisontower>().pathone++;
-                return; 
+                if (money >= 500)
+                {
+                    money -= 500;
+                    selected.GetComponent<poisontower>().radius += 2;
+                    selected.GetComponent<poisontower>().pathone++;
+                    return;
+                }
+                else
+                    return;
             }
         }
     }
@@ -116,28 +136,47 @@ public class GameManager : MonoBehaviour
         }
         if (towertype == "poison") {
             if (selected.GetComponent<poisontower>().pathtwo == 0) {
-                selected.GetComponent<poisontower>().damage += 0.01f;
-                money -= 100;
-                selected.GetComponent<poisontower>().pathtwo++; 
-                return; 
+                if (money >= 100)
+                {
+                    selected.GetComponent<poisontower>().damage += 0.01f;
+                    money -= 100;
+                    selected.GetComponent<poisontower>().pathtwo++;
+                    return;
+                }
+                else
+                    return;
             }
             if (selected.GetComponent<poisontower>().pathtwo == 1) {
-                selected.GetComponent<poisontower>().damage += 0.02f;
-                money -= 200;
-                selected.GetComponent<poisontower>().pathtwo++; 
-                return; 
+                if (money >= 200)
+                {
+                    selected.GetComponent<poisontower>().damage += 0.02f;
+                    money -= 200;
+                    selected.GetComponent<poisontower>().pathtwo++;
+                    return;
+                }
+                else
+                    return;
             }
             if (selected.GetComponent<poisontower>().pathtwo == 2) {
-                selected.GetComponent<poisontower>().damage += 0.01f;
-                money -= 300;
-                selected.GetComponent<poisontower>().pathtwo++; 
-                return; 
+                if (money >= 300)
+                {
+                    selected.GetComponent<poisontower>().damage += 0.01f;
+                    money -= 300;
+                    selected.GetComponent<poisontower>().pathtwo++;
+                    return;
+                }
+                else
+                    return;
             }
             if (selected.GetComponent<poisontower>().pathtwo == 3) {
-                selected.GetComponent<poisontower>().damage += 0.02f;
-                money -= 400;
-                selected.GetComponent<poisontower>().pathtwo++; 
-                return; 
+                if (money >= 400)
+                {
+                    selected.GetComponent<poisontower>().damage += 0.02f;
+                    money -= 400;
+                    selected.GetComponent<poisontower>().pathtwo++;
+                    return;
+                }
+                else return;
             }
         }
     }

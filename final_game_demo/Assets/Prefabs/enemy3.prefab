@@ -173,7 +173,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9195d08496eb3f41b2ac1a252a90abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  left: {fileID: 0}
+  right: {fileID: 0}
+  down: {fileID: 0}
+  up: {fileID: 0}
+  render: {fileID: 0}
   health: 5
+  mon: 400
   target: {fileID: 8161649032283344413, guid: 0fa498bb720d3d84a87c1178b0942330, type: 3}
   speed: 600
   nextwaypointdist: 1
