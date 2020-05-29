@@ -59,7 +59,7 @@ public class basictower : MonoBehaviour
         }
         else {
             dir = (enemy.transform.position - this.transform.position).normalized;
-            Debug.Log(dir); 
+            //Debug.Log(dir); 
             Debug.DrawRay(this.transform.position, enemy.gameObject.transform.position - this.transform.position, Color.blue);
         }
         try

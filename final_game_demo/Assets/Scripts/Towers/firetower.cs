@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -19,7 +20,7 @@ public class firetower : MonoBehaviour
     public GameObject bulletshoot;
     public Collider2D[] colliders;
     public float timer;
-    public int firerate = 0;
+    public float firerate = 0;
     public int burstBulletCount = 3;
     private int currentBurstBulletCount = 0;
     public float coolDownTime = 1;
@@ -29,6 +30,8 @@ public class firetower : MonoBehaviour
     public SpriteRenderer render;
     public GameObject enemy;
     public Vector2 dir;
+    public int range = 5;
+
 
     public AudioSource audioSource;
     public AudioClip towerShoot;
@@ -44,13 +47,14 @@ public class firetower : MonoBehaviour
     {
         Gizmos.DrawWireSphere(this.transform.position, 5f);
     }
+    
     // Update is called once per frame
     void Update()
     {
         Vector3 offset;
         if (enemy == null)
         {
-            colliders = Physics2D.OverlapCircleAll(this.transform.position, 5f);
+            colliders = Physics2D.OverlapCircleAll(this.transform.position, range);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject.tag == "enemy")
@@ -59,17 +63,21 @@ public class firetower : MonoBehaviour
                 }
             }
         }
-        else
-        {
+        else {
             dir = (enemy.transform.position - this.transform.position).normalized;
             //Debug.Log(dir);
             Debug.DrawRay(this.transform.position, enemy.gameObject.transform.position - this.transform.position, Color.blue);
         }
-        if (Vector2.Distance(enemy.transform.position, this.gameObject.transform.position) > 5)
+        try
         {
-            enemy = null;
+            if (Vector2.Distance(enemy.transform.position, this.gameObject.transform.position) > 5)
+            {
+                enemy = null;
+            }
+        } catch (Exception UnsignedReferenceException) {
+            return;
         }
-        timer += Time.deltaTime;
+ 
         if ((dir.x < 0.75 && dir.x > 0.25) && (dir.y < 0.75 && dir.y > 0.25))
         {
             dir = new Vector2(0.5f, 0.5f); //shoot NE 
@@ -110,31 +118,37 @@ public class firetower : MonoBehaviour
             dir = new Vector2(-0.5f, 0.5f);
             render.sprite = northwest;
         }
-        //if it's time for the next projectile to be shot
-        if (timer > firerate)
+        //then as long as the tower isn't on cooldown
+        if (!onCooldown)
         {
-            
-            //then as long as the tower isn't on cooldown
-            if (!onCooldown)
+            //if it's time for the next projectile to be shot
+            if (timer > firerate)
             {
-                //create and shoot the bullet + play the sound effect
-                bulletshoot = Instantiate(bullet, transform.position, transform.rotation);
-                bulletshoot.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
-                audioSource.clip = towerShoot;
-                audioSource.Play();
-                timer = 0;
-                currentBurstBulletCount--;
-                //if that was the last shot in the current burst
-                if(currentBurstBulletCount <= 0)
+                //if there are no bullets left in the current burst
+                if (currentBurstBulletCount <= 0)
                 {
                     //then turn cooldown on and set the cooldown timer to the length of a cooldown
                     onCooldown = true;
                     currentCoolDownTime = coolDownTime;
                 }
+                else
+                {
+                    //create and shoot the bullet + play the sound effect
+                    bulletshoot = Instantiate(bullet, transform.position, transform.rotation);
+                    bulletshoot.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
+                    audioSource.clip = towerShoot;
+                    audioSource.Play();
+                    timer = 0;
+                    currentBurstBulletCount--;
+                }
+            }
+            else
+            {
+                timer += Time.deltaTime;
             }
         }
         //if the tower is on cooldown
-        if (onCooldown && currentCoolDownTime <= 0)
+        if (onCooldown)
         {
             //if it is at the end of its cooldown
             if (currentCoolDownTime <= 0)
