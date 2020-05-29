@@ -125,14 +125,17 @@ MonoBehaviour:
   bulletshoot: {fileID: 0}
   colliders: []
   timer: 0
-  firerate: 3
+  firerate: 5
   direction: 0
   render: {fileID: 0}
   enemy: {fileID: 0}
   dir: {x: 0, y: 0}
+  pathone: 0
+  pathtwo: 0
   audioSource: {fileID: -5339014200346299386}
   towerShoot: {fileID: 8300000, guid: b7047729f3b3d5949b3a9c06a562ee16, type: 3}
   towerPlace: {fileID: 8300000, guid: a413c46bf51429040a6037f635d0f2cd, type: 3}
+  range: 5
 --- !u!82 &-5339014200346299386
 AudioSource:
   m_ObjectHideFlags: 0

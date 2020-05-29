@@ -27,14 +27,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         towertypetext.text = towertype;
-        if (towertype == "poison") {
-            if (selected.GetComponent<poisontower>().pathone == 0) {
+        if (towertype == "poison") { //if tower type is poison (clicked on) 
+            if (selected.GetComponent<poisontower>().pathone == 0) { // if on the first path then the first button should show the first upgrade 
                 onebuttontext.text = "Double Range (75)"; 
             }
-            if (selected.GetComponent<poisontower>().pathone == 1) {
+            if (selected.GetComponent<poisontower>().pathone == 1) { //if on the first path, second upgrade, then show the second upgrade 
                 onebuttontext.text = "Double Range (150)"; 
             }
-            if (selected.GetComponent<poisontower>().pathone == 2) {
+            if (selected.GetComponent<poisontower>().pathone == 2) { // "" 
                 onebuttontext.text = "Slow Bugs 1/4 (400)"; 
             }
             if (selected.GetComponent<poisontower>().pathone == 3) {
@@ -60,26 +60,42 @@ public class GameManager : MonoBehaviour
             }
         }
         if (towertype == "basic") {
-            if (selected.GetComponent<basictower>().direction == 8) {
-                selected.GetComponent<basictower>().direction = 0; 
+            if (selected.GetComponent<basictower>().pathone == 0) {
+                onebuttontext.text = "Increase Range (75)"; 
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                Debug.Log(selected.GetComponent<basictower>().direction);
-                selected.GetComponent<basictower>().direction += 1;
-                Debug.Log(selected.GetComponent<basictower>().direction); 
-                
+            if (selected.GetComponent<basictower>().pathone == 1) {
+                onebuttontext.text = "Increase Range (150)"; 
+            }
+            if (selected.GetComponent<basictower>().pathone == 2) {
+                onebuttontext.text = "Increase Range (250)"; 
+            }
+            if (selected.GetComponent<basictower>().pathone == 3) {
+                onebuttontext.text = "Increase Range (300)"; 
+            }
+            if (selected.GetComponent<basictower>().pathone == 4) {
+                onebuttontext.text = "MAX LEVEL"; 
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 0) {
+                twobuttontext.text = "Up Fire Rate (100)"; 
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 1) {
+                twobuttontext.text = "Up Fire Rate (200)"; 
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 2) {
+                twobuttontext.text = "Up Damage (300)"; 
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 3) {
+                twobuttontext.text = "Up Damage (400)"; 
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 4) {
+                twobuttontext.text = "MAX LEVEL"; 
             }
             
         }
         
     }
 
-    public void click() {
-        if (selected.GetComponent<poisontower>().pathone != 4)
-        {
-            upgradeSource.Play();
-        }
+    public void click() { // this script is attached to the top button and is invoked when the button is clicked 
         if(towertype == "poison")
         {
             if (selected.GetComponent<poisontower>().pathone == 0) {
@@ -88,6 +104,7 @@ public class GameManager : MonoBehaviour
                     money -= 75;
                     selected.GetComponent<poisontower>().radius += 1;
                     selected.GetComponent<poisontower>().pathone++;
+                    upgradeSource.Play(); 
                     return;
                 }
                 else
@@ -99,6 +116,7 @@ public class GameManager : MonoBehaviour
                     money -= 150;
                     selected.GetComponent<poisontower>().radius += 2;
                     selected.GetComponent<poisontower>().pathone++;
+                    upgradeSource.Play(); 
                     return;
                 }
                 else
@@ -111,6 +129,7 @@ public class GameManager : MonoBehaviour
                     selected.GetComponent<poisontower>().radius += 1;
                     selected.GetComponent<poisontower>().slowenemy = true;
                     selected.GetComponent<poisontower>().pathone++;
+                    upgradeSource.Play(); 
                     return;
                 }
                 
@@ -121,19 +140,66 @@ public class GameManager : MonoBehaviour
                     money -= 500;
                     selected.GetComponent<poisontower>().radius += 2;
                     selected.GetComponent<poisontower>().pathone++;
+                    upgradeSource.Play(); 
                     return;
                 }
                 else
                     return;
             }
         }
+        if (towertype == "basic") {
+            if (selected.GetComponent<basictower>().pathone == 0) {
+                if (money >= 75)
+                {
+                    money -= 75;
+                    selected.GetComponent<basictower>().range += 1;
+                    selected.GetComponent<basictower>().pathone++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
+            }
+            if (selected.GetComponent<basictower>().pathone == 1) {
+                if (money >= 150)
+                {
+                    money -= 150;
+                    selected.GetComponent<basictower>().range += 1;
+                    selected.GetComponent<basictower>().pathone++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return; 
+            }
+            if (selected.GetComponent<basictower>().pathone == 2) {
+                if (money >= 250)
+                {
+                    money -= 250;
+                    selected.GetComponent<basictower>().range += 1;
+                    selected.GetComponent<basictower>().pathone++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return; 
+            }
+            if (selected.GetComponent<basictower>().pathone == 3) {
+                if (money >= 300)
+                {
+                    money -= 300;
+                    selected.GetComponent<basictower>().range += 1;
+                    selected.GetComponent<basictower>().pathone++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return; 
+            }
+        }
     }
 
-    public void clicktwo() {
-        if (selected.GetComponent<poisontower>().pathtwo != 4)
-        {
-            upgradeSource.Play();
-        }
+    public void clicktwo() { 
         if (towertype == "poison") {
             if (selected.GetComponent<poisontower>().pathtwo == 0) {
                 if (money >= 100)
@@ -141,6 +207,7 @@ public class GameManager : MonoBehaviour
                     selected.GetComponent<poisontower>().damage += 0.01f;
                     money -= 100;
                     selected.GetComponent<poisontower>().pathtwo++;
+                    upgradeSource.Play(); 
                     return;
                 }
                 else
@@ -152,6 +219,7 @@ public class GameManager : MonoBehaviour
                     selected.GetComponent<poisontower>().damage += 0.02f;
                     money -= 200;
                     selected.GetComponent<poisontower>().pathtwo++;
+                    upgradeSource.Play(); 
                     return;
                 }
                 else
@@ -163,6 +231,7 @@ public class GameManager : MonoBehaviour
                     selected.GetComponent<poisontower>().damage += 0.01f;
                     money -= 300;
                     selected.GetComponent<poisontower>().pathtwo++;
+                    upgradeSource.Play(); 
                     return;
                 }
                 else
@@ -174,9 +243,60 @@ public class GameManager : MonoBehaviour
                     selected.GetComponent<poisontower>().damage += 0.02f;
                     money -= 400;
                     selected.GetComponent<poisontower>().pathtwo++;
+                    upgradeSource.Play(); 
                     return;
                 }
                 else return;
+            }
+        }
+        if (towertype == "basic") {
+            if (selected.GetComponent<basictower>().pathtwo == 0) {
+                if (money >= 100)
+                {
+                    money -= 100; 
+                    selected.GetComponent<basictower>().firerate--;
+                    selected.GetComponent<basictower>().pathtwo++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return; 
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 1) {
+                if (money >= 200)
+                {
+                    money -= 200; 
+                    selected.GetComponent<basictower>().firerate--;
+                    selected.GetComponent<basictower>().pathtwo++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return; 
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 2) {
+                if (money >= 300)
+                {
+                    money -= 300; 
+                    selected.GetComponent<basictower>().firerate--;
+                    selected.GetComponent<basictower>().pathtwo++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return; 
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 3) {
+                if (money >= 400)
+                {
+                    money -= 400; 
+                    selected.GetComponent<basictower>().firerate--;
+                    selected.GetComponent<basictower>().pathtwo++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return; 
             }
         }
     }

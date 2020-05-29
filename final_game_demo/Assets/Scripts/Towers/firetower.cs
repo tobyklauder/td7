@@ -156,7 +156,7 @@ public class firetower : MonoBehaviour
     private void OnMouseDown()
     {
         GameManager.selected = this.gameObject;
-        GameManager.towertype = "basic";
+        GameManager.towertype = "fire";
     }
 }
 

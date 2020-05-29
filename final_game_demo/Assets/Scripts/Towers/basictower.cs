@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -24,10 +25,12 @@ public class basictower : MonoBehaviour
     public SpriteRenderer render;
     public GameObject enemy;
     public Vector2 dir;
-
+    public int pathone;
+    public int pathtwo; 
     public AudioSource audioSource;
     public AudioClip towerShoot;
     public AudioClip towerPlace;
+    public int range = 5; 
 
     private void Start()
     {
@@ -37,7 +40,7 @@ public class basictower : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, 5f);
+        Gizmos.DrawWireSphere(this.transform.position, range);
     }
     // Update is called once per frame
     void Update()
@@ -45,7 +48,7 @@ public class basictower : MonoBehaviour
        Vector3 offset;
         if (enemy == null)
         {
-            colliders = Physics2D.OverlapCircleAll(this.transform.position, 5f);
+            colliders = Physics2D.OverlapCircleAll(this.transform.position, range);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject.tag == "enemy")
@@ -59,10 +62,15 @@ public class basictower : MonoBehaviour
             Debug.Log(dir); 
             Debug.DrawRay(this.transform.position, enemy.gameObject.transform.position - this.transform.position, Color.blue);
         }
-        //if (Vector2.Distance(enemy.transform.position, this.gameObject.transform.position) > 5)
-        //{
-         //   enemy = null; 
-       // }
+        try
+        {
+            if (Vector2.Distance(enemy.transform.position, this.gameObject.transform.position) > 5)
+            {
+                enemy = null;
+            }
+        } catch (Exception UnsignedReferenceException) {
+            return;     
+        }
         timer += Time.deltaTime;
             if ((dir.x < 0.75 && dir.x > 0.25) && (dir.y < 0.75 && dir.y > 0.25)) {
                 dir = new Vector2(0.5f, 0.5f); //shoot NE 
