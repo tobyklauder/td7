@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static AudioSource audioSource;
+    public AudioSource upgradeSource;
+    public AudioClip upgradeSound;
     public static int health = 10;
     public static GameObject selected; 
     public int money = 500; 
@@ -18,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
- 
+        upgradeSource.clip = upgradeSound;
     }
 
     void Update()
@@ -72,7 +74,11 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void click() { 
+    public void click() {
+        if (selected.GetComponent<poisontower>().pathone != 4)
+        {
+            upgradeSource.Play();
+        }
         if(towertype == "poison")
         {
             if (selected.GetComponent<poisontower>().pathone == 0) {
@@ -104,6 +110,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void clicktwo() {
+        if (selected.GetComponent<poisontower>().pathtwo != 4)
+        {
+            upgradeSource.Play();
+        }
         if (towertype == "poison") {
             if (selected.GetComponent<poisontower>().pathtwo == 0) {
                 selected.GetComponent<poisontower>().damage += 0.01f;
@@ -137,6 +147,10 @@ public class GameManager : MonoBehaviour
     }
     public void enablepoison() {
         current = "poison"; 
+    }
+    public void enablefire()
+    {
+        current = "fire";
     }
 
     public void loadGame()

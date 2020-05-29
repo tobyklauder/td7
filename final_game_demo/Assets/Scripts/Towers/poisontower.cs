@@ -12,10 +12,25 @@ public class poisontower : MonoBehaviour
     public float damage = 0.01f;
     public int view = 0; 
     public int pathone = 0;
-    public int pathtwo = 0; 
+    public int pathtwo = 0;
+
+    public AudioSource audioSource;
+    public AudioClip towerShoot;
+    public AudioClip towerPlace;
+
+    private bool inRange;
+
+    private void Start()
+    {
+        audioSource.clip = towerPlace;
+        audioSource.Play();
+        inRange = false;
+    }
+
     private void Update()
     {
         colliders = Physics2D.OverlapCircleAll(this.transform.position, radius);
+        inRange = false;
         if (colliders.Length > 0)
         {
             for (int i = 0; i < colliders.Length; i++)
@@ -24,8 +39,18 @@ public class poisontower : MonoBehaviour
                 {
                     colliders[i].gameObject.GetComponent<enemy>().health -= damage;
                     Debug.Log("taking health");
+                    inRange = true;
                 }
             }
+        }
+        if(inRange == false)
+        {
+            audioSource.Stop();
+        }
+        else if (!audioSource.isPlaying)
+        {
+            audioSource.clip = towerShoot;
+            audioSource.Play();
         }
     }
 

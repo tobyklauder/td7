@@ -8,7 +8,7 @@ public class ground : MonoBehaviour
 {
     public GameObject poision;
     public GameObject basic;
-    public GameObject blade; 
+    public GameObject fire; 
     public bool plantable;
     public bool tooclose; 
     Vector2 mousepos;
@@ -18,7 +18,8 @@ public class ground : MonoBehaviour
     void Update()
     {
         mouseposscreen = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-        mouseposscreen.z += 10; 
+        mouseposscreen.z += 10;
+        
     }
 
     private void OnMouseEnter()
@@ -33,6 +34,7 @@ public class ground : MonoBehaviour
 
     private void OnMouseDown()
     {
+        print("Mouse down");
         if (plantable) {
             if (GameManager.current == "poison")
             {
@@ -44,8 +46,9 @@ public class ground : MonoBehaviour
                 Instantiate(basic, mouseposscreen, transform.rotation);
                 GameManager.current = ""; 
             }
-            else if (GameManager.current == "blade") {
-                Instantiate(blade, mouseposscreen, transform.rotation);
+            else if (GameManager.current == "fire") {
+                print("Instantiating a fire tower");
+                Instantiate(fire, mouseposscreen, transform.rotation);
                 GameManager.current = ""; 
             }
         }

@@ -23,10 +23,17 @@ public class basictower : MonoBehaviour
     public int direction = 0;
     public SpriteRenderer render;
     public GameObject enemy;
-    public Vector2 dir; 
+    public Vector2 dir;
+
+    public AudioSource audioSource;
+    public AudioClip towerShoot;
+    public AudioClip towerPlace;
+
     private void Start()
     {
-        render = GetComponent<SpriteRenderer>(); 
+        render = GetComponent<SpriteRenderer>();
+        audioSource.clip = towerPlace;
+        audioSource.Play();
     }
     private void OnDrawGizmos()
     {
@@ -52,10 +59,10 @@ public class basictower : MonoBehaviour
             Debug.Log(dir); 
             Debug.DrawRay(this.transform.position, enemy.gameObject.transform.position - this.transform.position, Color.blue);
         }
-        if (Vector2.Distance(enemy.transform.position, this.gameObject.transform.position) > 5)
-        {
-            enemy = null; 
-        }
+        //if (Vector2.Distance(enemy.transform.position, this.gameObject.transform.position) > 5)
+        //{
+         //   enemy = null; 
+       // }
         timer += Time.deltaTime;
             if ((dir.x < 0.75 && dir.x > 0.25) && (dir.y < 0.75 && dir.y > 0.25)) {
                 dir = new Vector2(0.5f, 0.5f); //shoot NE 
@@ -134,6 +141,8 @@ public class basictower : MonoBehaviour
         {
             bulletshoot = Instantiate(bullet, transform.position, transform.rotation);
             bulletshoot.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
+            audioSource.clip = towerShoot;
+            audioSource.Play();
             timer = 0;
         }
   }

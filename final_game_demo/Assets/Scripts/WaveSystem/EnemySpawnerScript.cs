@@ -19,7 +19,8 @@ public class EnemySpawnerScript : MonoBehaviour
     int p1;
     int p2;
     int p3;
-
+    public AudioSource audioSource;
+    public AudioClip waveStart;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class EnemySpawnerScript : MonoBehaviour
         p3 = 3;
         p2 = 2;
         p1 = 3;
+        audioSource.clip = waveStart;
     }
 
     void spawnEnemy(int type)
@@ -171,6 +173,7 @@ public class EnemySpawnerScript : MonoBehaviour
         {
             if (countdown <= 0f)
             {
+                audioSource.Play();
                 WaveCounter++;
                 StartCoroutine(WaveSystem());
                 countdown = timeBetweenWaves;
