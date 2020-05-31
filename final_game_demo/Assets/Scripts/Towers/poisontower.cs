@@ -17,6 +17,7 @@ public class poisontower : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip towerShoot;
     public AudioClip towerPlace;
+    public Animator anim;
 
     private bool inRange;
 
@@ -25,6 +26,7 @@ public class poisontower : MonoBehaviour
         audioSource.clip = towerPlace;
         audioSource.Play();
         inRange = false;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -37,6 +39,7 @@ public class poisontower : MonoBehaviour
             {
                 if (colliders[i].gameObject.tag == "enemy")
                 {
+                    anim.Play("sprite_00", 0);
                     colliders[i].gameObject.GetComponent<enemy>().health -= damage;
                     Debug.Log("taking health");
                     inRange = true;
