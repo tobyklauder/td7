@@ -31,6 +31,8 @@ public class firetower : MonoBehaviour
     public GameObject enemy;
     public Vector2 dir;
     public int range = 5;
+    public int pathone = 0;
+    public int pathtwo = 0; 
 
 
     public AudioSource audioSource;
@@ -45,7 +47,7 @@ public class firetower : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, 5f);
+        Gizmos.DrawWireSphere(this.transform.position, range);
     }
     
     // Update is called once per frame

@@ -92,6 +92,38 @@ public class GameManager : MonoBehaviour
             }
             
         }
+        if (towertype == "fire") {
+            if (selected.GetComponent<firetower>().pathone == 0) {
+                onebuttontext.text = "Increase Range (75)"; 
+            }
+            if (selected.GetComponent<firetower>().pathone == 1) {
+                onebuttontext.text = "Increase Range (150)"; 
+            }
+            if (selected.GetComponent<firetower>().pathone == 2) {
+                onebuttontext.text = "Increase Range (250)"; 
+            }
+            if (selected.GetComponent<firetower>().pathone == 3) {
+                onebuttontext.text = "Increase Range (300)"; 
+            }
+            if (selected.GetComponent<firetower>().pathone == 4) {
+                onebuttontext.text = "MAX LEVEL"; 
+            }
+            if (selected.GetComponent<firetower>().pathtwo == 0) {
+                twobuttontext.text = "+Energy Balls (100)"; 
+            }
+            if (selected.GetComponent<firetower>().pathtwo == 1) {
+                twobuttontext.text = "+Energy Balls (200)"; 
+            }
+            if (selected.GetComponent<firetower>().pathtwo == 2) {
+                twobuttontext.text = "+Energy Balls (300)"; 
+            }
+            if (selected.GetComponent<firetower>().pathtwo == 3) {
+                twobuttontext.text = "+Energy Balls (400)"; 
+            }
+            if (selected.GetComponent<firetower>().pathtwo == 4) {
+                twobuttontext.text = "MAX LEVEL"; 
+            }
+        }
         
     }
 
@@ -197,6 +229,60 @@ public class GameManager : MonoBehaviour
                     return; 
             }
         }
+        if (towertype == "fire") {
+            if (selected.GetComponent<firetower>().pathone == 0)
+            {
+                if (money >= 75)
+                {
+                    money -= 75;
+                    selected.GetComponent<firetower>().range += 1;
+                    selected.GetComponent<firetower>().pathone++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
+            }
+            if (selected.GetComponent<firetower>().pathone == 1)
+            {
+                if (money >= 150)
+                {
+                    money -= 150;
+                    selected.GetComponent<firetower>().range += 1;
+                    selected.GetComponent<firetower>().pathone++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
+            }
+            if (selected.GetComponent<firetower>().pathone == 2)
+            {
+                if (money >= 250)
+                {
+                    money -= 250;
+                    selected.GetComponent<firetower>().range += 1;
+                    selected.GetComponent<firetower>().pathone++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
+            }
+            if (selected.GetComponent<firetower>().pathone == 3)
+            {
+                if (money >= 300)
+                {
+                    money -= 300;
+                    selected.GetComponent<firetower>().range += 1;
+                    selected.GetComponent<firetower>().pathone++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
+            }
+        }
     }
 
     public void clicktwo() { 
@@ -297,6 +383,60 @@ public class GameManager : MonoBehaviour
                 }
                 else
                     return; 
+            }
+        }
+        if (towertype == "fire") {
+            if (selected.GetComponent<firetower>().pathtwo == 0)
+            {
+                if (money >= 100)
+                {
+                    money -= 100;
+                    selected.GetComponent<firetower>().burstBulletCount++;
+                    selected.GetComponent<firetower>().pathtwo++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
+            }
+            if (selected.GetComponent<basictower>().pathtwo == 1)
+            {
+                if (money >= 200)
+                {
+                    money -= 200;
+                    selected.GetComponent<firetower>().burstBulletCount++;
+                    selected.GetComponent<firetower>().pathtwo++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
+            }
+            if (selected.GetComponent<firetower>().pathtwo == 2)
+            {
+                if (money >= 300)
+                {
+                    money -= 300;
+                    selected.GetComponent<firetower>().burstBulletCount++;
+                    selected.GetComponent<firetower>().pathtwo++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
+            }
+            if (selected.GetComponent<firetower>().pathtwo == 3)
+            {
+                if (money >= 400)
+                {
+                    money -= 400;
+                    selected.GetComponent<firetower>().burstBulletCount++;
+                    selected.GetComponent<firetower>().pathtwo++;
+                    upgradeSource.Play();
+                    return;
+                }
+                else
+                    return;
             }
         }
     }
