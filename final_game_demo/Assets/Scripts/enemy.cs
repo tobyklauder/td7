@@ -36,7 +36,12 @@ public class enemy : MonoBehaviour
     //Seeker helps get around the obstacles, part of A* library 
     Seeker seeker;
     //Rigidbody used to apply forces
-    Rigidbody2D rb; 
+    Rigidbody2D rb;
+    //Variables to handle firetower fire
+    public float timeOnFire;
+    private float timer;
+    private bool onFire;
+    public float fireDPS;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +52,8 @@ public class enemy : MonoBehaviour
         render = GetComponent<SpriteRenderer>(); 
 
         seeker.StartPath(rb.position, target.position, OnPathComplete);
+
+        timer = timeOnFire;
     }
 
     void OnPathComplete(Path p) {
@@ -109,24 +116,34 @@ public class enemy : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.money += mon; 
         }
-
-       
-
- 
+        if (onFire)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                onFire = false;
+                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            else
+            {
+                health -= fireDPS*Time.deltaTime;
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "bullet")
+        if (collision.gameObject.GetComponent<fireball>() != null)
+        {
+            Destroy(collision.gameObject);
+            onFire = true;
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            health -= 0.1f;
+        }
+        else if (collision.gameObject.tag == "bullet")
         {
             Destroy(collision.gameObject);
             health -= 2f;
-        }
-        else if (collision.gameObject.tag == "bullet2test")
-        {
-            render.color = Color.red;
-            Destroy(collision.gameObject);
-            health -= 1f;     
         }
         if (collision.gameObject.tag == "Finish") {
             GameManager.health--;
