@@ -85,18 +85,43 @@ public class enemy : MonoBehaviour
         //Debug.Log("x: " + Mathf.Round(direction.x)  + " y: " + Mathf.Round(direction.y));
         if (Mathf.Round(direction.x) == 0 && Mathf.Round(direction.y) == 1)
         {
-            render.sprite = up; 
+            //SPAGHETTI CODE WILL FIX SOON -EY
+            anim.SetBool("Move4", false);
+            anim.SetBool("Move2", false);
+            anim.SetBool("Move3", false);
+
+            anim.SetBool("Move", true);
+            //render.sprite = up; 
         }
         else if (Mathf.Round(direction.x) == 0 && Mathf.Round(direction.y) == -1)
         {
-            render.sprite = down; 
+            //SPAGHETTI CODE WILL FIX SOON -EY
+            anim.SetBool("Move", false);
+            anim.SetBool("Move4", false);
+            anim.SetBool("Move2", false);
+
+            anim.SetBool("Move3", true);
+            //render.sprite = down; 
         }
         else if (Mathf.Round(direction.x) == -1 && Mathf.Round(direction.y) == 0)
         {
-            render.sprite = left; 
+            //SPAGHETTI CODE WILL FIX SOON -EY
+            anim.SetBool("Move", false);
+            anim.SetBool("Move2", false);
+            anim.SetBool("Move3", false);
+
+            anim.SetBool("Move4", true);
+            //render.sprite = left; 
         }
-        else if (Mathf.Round(direction.x) == 1 && Mathf.Round(direction.y) == 0) {
-            render.sprite = right; 
+        else if (Mathf.Round(direction.x) == 1 && Mathf.Round(direction.y) == 0)
+        {
+            //SPAGHETTI CODE WILL FIX SOON -EY
+            anim.SetBool("Move3", false);
+            anim.SetBool("Move", false);
+            anim.SetBool("Move4", false);
+
+            anim.SetBool("Move2", true);
+            //render.sprite = right; 
         }
         //create force to direction times the speed and times Time.deltaTime so it is stable with changing framerates
         Vector2 force = direction * speed * Time.deltaTime;

@@ -174,9 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  left: {fileID: 21300000, guid: a767915b461ac424c8181a2ada9e59a6, type: 3}
-  right: {fileID: 21300000, guid: 880569cddc0774a419edf1e72b060471, type: 3}
-  down: {fileID: 21300000, guid: 2cc01e7e466dda444b5ee51efffc03f8, type: 3}
+  left: {fileID: 21300000, guid: 55d141d30cc5cd447b9486fe19ce0e4f, type: 3}
+  right: {fileID: 21300000, guid: fadc7eaf871c2e548ab1346df62aba29, type: 3}
+  down: {fileID: 21300000, guid: 662a730d41bfc984da31dea803bdd815, type: 3}
   up: {fileID: 21300000, guid: 9bafe6cffd6516741b97823ee073826c, type: 3}
   render: {fileID: 0}
   health: 5
