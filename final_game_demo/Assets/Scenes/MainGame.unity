@@ -3091,7 +3091,7 @@ MonoBehaviour:
   WaveCounter: 14
   WaveMax: 0
   EnemyCounter: 0
-  EStag: 1.5
+  EStag: 3
   timeBetweenWaves: 2
   audioSource: {fileID: 1420650692}
   waveStart: {fileID: 8300000, guid: 2ff92cafd5e688847b64cc015410ce48, type: 3}
