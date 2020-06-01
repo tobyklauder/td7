@@ -129,7 +129,7 @@ public class EnemySpawnerScript : MonoBehaviour
                         yield return new WaitForSeconds(EStag);
                     }
                     p1 += 1;
-                    Debug.Log(p1);
+                    //Debug.Log(p1);
 
                     //Enemy 2 increases by2 each time
                     for (i = 0; i < p2; i++)
@@ -152,8 +152,11 @@ public class EnemySpawnerScript : MonoBehaviour
             }
             else if (WaveCounter <= 20)
             {
-                spawnEnemy(2);
-                yield return new WaitForSeconds(EStag);
+                for (i = 0; i < 20; i++)
+                {
+                    spawnEnemy(2);
+                    yield return new WaitForSeconds(EStag);
+                }
             }
         }
     }
@@ -166,6 +169,10 @@ public class EnemySpawnerScript : MonoBehaviour
         if (WaveCounter >= 21)
         {
             SceneManager.LoadScene(0);
+        }
+        else if (GameManager.health == 0)
+        {
+            SceneManager.LoadScene(2);
         }
 
         else if (EnemyCounter == 0)

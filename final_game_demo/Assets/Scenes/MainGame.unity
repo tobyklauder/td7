@@ -121,26 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &41577444 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8161649032283344412, guid: 0fa498bb720d3d84a87c1178b0942330,
-    type: 3}
-  m_PrefabInstance: {fileID: 1325624861}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &41577448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41577444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f6038d9f0443e439855d1176fb15f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCam: {fileID: 519420031}
-  anim: {fileID: 0}
 --- !u!1 &92771596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,7 +3068,7 @@ MonoBehaviour:
   Enemy: {fileID: 4090488157621039032, guid: c92b78d235199364db20d6c5f7c8b19e, type: 3}
   Enemy2: {fileID: 5599013416712088601, guid: 4175046b6b27aa4429a04f0f04e9d124, type: 3}
   Enemy3: {fileID: 914031983361053415, guid: 5b710d07ce950284e97c17539c1e80ac, type: 3}
-  WaveCounter: 14
+  WaveCounter: 18
   WaveMax: 0
   EnemyCounter: 0
   EStag: 3
