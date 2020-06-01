@@ -476,5 +476,17 @@ public class GameManager : MonoBehaviour
         GetComponent<musicManager>().playWinSound();
     }
 
+    public void loadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+        GetComponent<musicManager>().audioSource.Stop();
+    }
+
+    public void loadTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+        GetComponent<musicManager>().audioSource.Stop();
+    }
+
 }
 

@@ -30,7 +30,7 @@ public class basictower : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip towerShoot;
     public AudioClip towerPlace;
-    public int range = 5; 
+    public int range = 5;
 
     private void Start()
     {
@@ -147,7 +147,9 @@ public class basictower : MonoBehaviour
         //}
         if (timer > firerate)
         {
-            bulletshoot = Instantiate(bullet, transform.position, transform.rotation);
+            //Vector3 relativePos = enemy.transform.position - transform.position;
+            //Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+            bulletshoot = Instantiate(bullet, transform.position, new Quaternion(0,0,0,0));
             bulletshoot.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
             audioSource.clip = towerShoot;
             audioSource.Play();
