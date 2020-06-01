@@ -766,8 +766,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374440380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.204, y: -2.754, z: 0.7675257}
-  m_LocalScale: {x: 3.4245675, y: 5.5502667, z: 1}
+  m_LocalPosition: {x: -5.335, y: -2.754, z: 0.7675257}
+  m_LocalScale: {x: 3.1608758, y: 5.5502667, z: 1}
   m_Children: []
   m_Father: {fileID: 1164175241}
   m_RootOrder: 1
@@ -2521,8 +2521,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277889556}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -7.878, y: -5.474, z: 0.7675257}
-  m_LocalScale: {x: 2.726223, y: 7.496407, z: 1}
+  m_LocalPosition: {x: -7.54, y: -5.334, z: 0.7675257}
+  m_LocalScale: {x: 1.9949571, y: 6.8249164, z: 1}
   m_Children: []
   m_Father: {fileID: 1164175241}
   m_RootOrder: 2
@@ -3068,7 +3068,7 @@ MonoBehaviour:
   Enemy: {fileID: 4090488157621039032, guid: c92b78d235199364db20d6c5f7c8b19e, type: 3}
   Enemy2: {fileID: 5599013416712088601, guid: 4175046b6b27aa4429a04f0f04e9d124, type: 3}
   Enemy3: {fileID: 914031983361053415, guid: 5b710d07ce950284e97c17539c1e80ac, type: 3}
-  WaveCounter: 18
+  WaveCounter: 0
   WaveMax: 0
   EnemyCounter: 0
   EStag: 3
@@ -3858,8 +3858,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772215053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.913, y: -2.677, z: 0.7}
-  m_LocalScale: {x: 3.8008637, y: 8.255777, z: 1}
+  m_LocalPosition: {x: 6.114, y: -2.792, z: 0.7}
+  m_LocalScale: {x: 3.3995028, y: 8.025565, z: 1}
   m_Children: []
   m_Father: {fileID: 1164175241}
   m_RootOrder: 7
@@ -4400,8 +4400,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838852765}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.017, y: -0.801, z: 0.7}
-  m_LocalScale: {x: 4.521645, y: 7.0635366, z: 1}
+  m_LocalPosition: {x: 0.189, y: -0.651, z: 0.7}
+  m_LocalScale: {x: 4.110175, y: 6.766868, z: 1}
   m_Children: []
   m_Father: {fileID: 1164175241}
   m_RootOrder: 0

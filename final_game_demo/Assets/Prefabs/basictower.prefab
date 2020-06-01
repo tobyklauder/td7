@@ -121,7 +121,7 @@ MonoBehaviour:
   south: {fileID: 21300000, guid: afe8cac1d5a0a4643b5f2f0297457e4e, type: 3}
   southwest: {fileID: 21300000, guid: e17ba16a451d40a45b078aef72380d9d, type: 3}
   bullet: {fileID: 5912585031607938826, guid: 6ef24ea88f2ab2243b771aab135f85bb, type: 3}
-  bulletSpeed: 10
+  bulletSpeed: 5
   bulletshoot: {fileID: 0}
   colliders: []
   timer: 0

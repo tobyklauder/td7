@@ -156,19 +156,18 @@ public class enemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<fireball>() != null)
         {
             Destroy(collision.gameObject);
             onFire = true;
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-            health -= 0.1f;
+            health -= 0.05f;
         }
-        else if (collision.gameObject.tag == "bullet")
-        {
+        else if (collision.gameObject.tag == "bullet") {
             Destroy(collision.gameObject);
-            health -= 2f;
+            health -= 1f; 
         }
         if (collision.gameObject.tag == "Finish") {
             GameManager.health--;

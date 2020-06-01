@@ -302,7 +302,7 @@ public class GameManager : MonoBehaviour
             if (selected.GetComponent<poisontower>().pathtwo == 1) {
                 if (money >= 200)
                 {
-                    selected.GetComponent<poisontower>().damage += 0.02f;
+                    selected.GetComponent<poisontower>().damage += 0.01f;
                     money -= 200;
                     selected.GetComponent<poisontower>().pathtwo++;
                     upgradeSource.Play(); 
@@ -326,7 +326,7 @@ public class GameManager : MonoBehaviour
             if (selected.GetComponent<poisontower>().pathtwo == 3) {
                 if (money >= 400)
                 {
-                    selected.GetComponent<poisontower>().damage += 0.02f;
+                    selected.GetComponent<poisontower>().damage += 0.01f;
                     money -= 400;
                     selected.GetComponent<poisontower>().pathtwo++;
                     upgradeSource.Play(); 
@@ -340,7 +340,7 @@ public class GameManager : MonoBehaviour
                 if (money >= 100)
                 {
                     money -= 100; 
-                    selected.GetComponent<basictower>().firerate--;
+                    selected.GetComponent<basictower>().firerate -= 0.5f;
                     selected.GetComponent<basictower>().pathtwo++;
                     upgradeSource.Play();
                     return;
@@ -352,7 +352,7 @@ public class GameManager : MonoBehaviour
                 if (money >= 200)
                 {
                     money -= 200; 
-                    selected.GetComponent<basictower>().firerate--;
+                    selected.GetComponent<basictower>().firerate -= 0.5f;
                     selected.GetComponent<basictower>().pathtwo++;
                     upgradeSource.Play();
                     return;
@@ -364,7 +364,7 @@ public class GameManager : MonoBehaviour
                 if (money >= 300)
                 {
                     money -= 300; 
-                    selected.GetComponent<basictower>().firerate--;
+                    selected.GetComponent<basictower>().firerate -= 0.5f;
                     selected.GetComponent<basictower>().pathtwo++;
                     upgradeSource.Play();
                     return;
@@ -376,7 +376,7 @@ public class GameManager : MonoBehaviour
                 if (money >= 400)
                 {
                     money -= 400; 
-                    selected.GetComponent<basictower>().firerate--;
+                    selected.GetComponent<basictower>().firerate -= 0.5f;
                     selected.GetComponent<basictower>().pathtwo++;
                     upgradeSource.Play();
                     return;
@@ -399,7 +399,7 @@ public class GameManager : MonoBehaviour
                 else
                     return;
             }
-            if (selected.GetComponent<basictower>().pathtwo == 1)
+            if (selected.GetComponent<firetower>().pathtwo == 1)
             {
                 if (money >= 200)
                 {

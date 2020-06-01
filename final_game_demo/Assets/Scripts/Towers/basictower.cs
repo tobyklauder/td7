@@ -20,7 +20,7 @@ public class basictower : MonoBehaviour
     public GameObject bulletshoot;
     public Collider2D[] colliders; 
     public float timer;
-    public int firerate = 0;
+    public float firerate = 0;
     public int direction = 0;
     public SpriteRenderer render;
     public GameObject enemy;
