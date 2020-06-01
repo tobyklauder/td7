@@ -13,11 +13,15 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     public Camera mainCam;
+    public Animator anim;
+    bool hurt;
 
     float shakeAmount = 0;
 
     void Awake()
     {
+        anim = GetComponent<Animator>();
+        hurt = false;
         if (mainCam == null)
         {
             mainCam = Camera.main;
@@ -42,6 +46,7 @@ public class CameraShake : MonoBehaviour
             camPos.x += offsetX;
             camPos.y += offsetY;
 
+            anim.SetBool("IsHurt", true);
             mainCam.transform.position = camPos;
         }
     }
@@ -49,12 +54,13 @@ public class CameraShake : MonoBehaviour
     void StopShake()
     {
         CancelInvoke("BeginShake");
+        anim.SetBool("IsHurt", false);
         mainCam.transform.localPosition = Vector3.zero;
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Shake(0.1f, 0.2f);
+        Shake(0.1f, 0.2f);  
     }
 }

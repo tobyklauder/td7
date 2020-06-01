@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 519420031}
+  anim: {fileID: 0}
 --- !u!1 &92771596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,8 +1689,9 @@ GameObject:
   - component: {fileID: 849888557}
   - component: {fileID: 849888556}
   - component: {fileID: 849888558}
+  - component: {fileID: 849888559}
   m_Layer: 0
-  m_Name: Power Generator  Artwork animation_0
+  m_Name: PowerGenerator
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1819,6 +1821,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 519420031}
+  anim: {fileID: 0}
+--- !u!95 &849888559
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849888553}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aee872f4d0593a74ea9b027982b2d7d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &858125750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,7 +3088,7 @@ MonoBehaviour:
   Enemy: {fileID: 4090488157621039032, guid: c92b78d235199364db20d6c5f7c8b19e, type: 3}
   Enemy2: {fileID: 5599013416712088601, guid: 4175046b6b27aa4429a04f0f04e9d124, type: 3}
   Enemy3: {fileID: 914031983361053415, guid: 5b710d07ce950284e97c17539c1e80ac, type: 3}
-  WaveCounter: 1
+  WaveCounter: 14
   WaveMax: 0
   EnemyCounter: 0
   EStag: 1.5
