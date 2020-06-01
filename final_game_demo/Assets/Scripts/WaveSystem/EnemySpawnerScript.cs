@@ -25,7 +25,6 @@ public class EnemySpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        WaveCounter = 0;
         WaveMax = 20;
         WaveSystem();
         p3 = 3;
