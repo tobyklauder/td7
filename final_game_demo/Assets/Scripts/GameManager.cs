@@ -455,37 +455,31 @@ public class GameManager : MonoBehaviour
     public void loadGame()
     {
         SceneManager.LoadScene("MainGame");
-        GetComponent<musicManager>().playGameTheme();
     }
 
     public void loadMenu()
     {
         SceneManager.LoadScene("MainMenu");
-        GetComponent<musicManager>().playMenuTheme();
     }
 
     public void loadGameLose()
     {
         SceneManager.LoadScene("GameLose");
-        GetComponent<musicManager>().playLoseSound();
     }
 
     public void loadGameWin()
     {
         SceneManager.LoadScene("GameWin");
-        GetComponent<musicManager>().playWinSound();
     }
 
     public void loadCredits()
     {
         SceneManager.LoadScene("Credits");
-        GetComponent<musicManager>().audioSource.Stop();
     }
 
     public void loadTutorial()
     {
         SceneManager.LoadScene("Tutorial");
-        GetComponent<musicManager>().audioSource.Stop();
     }
 
 }

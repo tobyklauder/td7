@@ -9,7 +9,7 @@ public class UIText2 : MonoBehaviour
     public void WaveCount()
     {
         Text myText = GetComponent<Text>();
-        myText.text = "Wave: " + FindObjectOfType<EnemySpawnerScript>().WaveCounter.ToString();
+        myText.text = "Wave: " + FindObjectOfType<EnemySpawnerScript>().WaveCounter.ToString() + "/20";
     }
 
     // Start is called before the first frame update

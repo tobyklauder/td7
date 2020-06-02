@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using UnityEditor.Experimental.GraphView;
 using System;
+using System.Collections;
 /* enemy.cs
 * Last Edit: Toby Klauder, 9:09 AM, 5/19/2020
 * Description: handles pathfinding 
@@ -140,6 +141,7 @@ public class enemy : MonoBehaviour
             anim.SetBool("Move2", true);
             //render.sprite = right; 
         }
+        
         //create force to direction times the speed and times Time.deltaTime so it is stable with changing framerates
         Vector2 force = direction * speed * Time.deltaTime;
         //apply the force so the bug actually moves 
@@ -190,13 +192,14 @@ public class enemy : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                print("No longer on fire");
                 timer = timeOnFire;
                 onFire = false;
-                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                gameObject.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.white);
             }
             else
             {
-                
+                print("Still on fire");
                 health -= fireDPS*Time.deltaTime;
             }
         }
@@ -207,7 +210,7 @@ public class enemy : MonoBehaviour
         if (collision.gameObject.GetComponent<fireball>() != null)
         {
             print("hit, turning red");
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            gameObject.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.red);
             onFire = true;
             timer = timeOnFire;
             Destroy(collision.gameObject);
