@@ -39,8 +39,8 @@ public class enemy : MonoBehaviour
     Rigidbody2D rb;
     //Variables to handle firetower fire
     public float timeOnFire;
-    private float timer;
-    private bool onFire;
+    public float timer;
+    public bool onFire;
     public float fireDPS;
     public bool moneyadd; 
     public bool isDead;
@@ -190,11 +190,13 @@ public class enemy : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                timer = timeOnFire;
                 onFire = false;
                 gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             }
             else
             {
+                
                 health -= fireDPS*Time.deltaTime;
             }
         }
@@ -204,16 +206,18 @@ public class enemy : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<fireball>() != null)
         {
-            Destroy(collision.gameObject);
-            onFire = true;
+            print("hit, turning red");
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            onFire = true;
+            timer = timeOnFire;
+            Destroy(collision.gameObject);
             health -= 0.05f;
         }
         else if (collision.gameObject.tag == "bullet") {
             Destroy(collision.gameObject);
             health -= 1f; 
         }
-        if (collision.gameObject.tag == "Finish") {
+        else if (collision.gameObject.tag == "Finish") {
             GameManager.health--;
             Debug.Log("enemy arrived, siphoning health"); 
         }

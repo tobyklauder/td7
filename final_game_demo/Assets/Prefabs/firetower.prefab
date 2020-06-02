@@ -126,7 +126,7 @@ MonoBehaviour:
   colliders: []
   timer: 0
   firerate: 0.02
-  burstBulletCount: 5
+  burstBulletCount: 1
   coolDownTime: 2
   direction: 0
   render: {fileID: 0}

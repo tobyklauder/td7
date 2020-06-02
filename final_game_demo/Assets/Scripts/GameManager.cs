@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        towertypetext.text = towertype;
+        //towertypetext.text = towertype;
         if (towertype == "poison") { //if tower type is poison (clicked on) 
             if (selected.GetComponent<poisontower>().pathone == 0) { // if on the first path then the first button should show the first upgrade 
                 onebuttontext.text = "Double Range (75)"; 
