@@ -42,9 +42,15 @@ public class enemy : MonoBehaviour
     private float timer;
     private bool onFire;
     public float fireDPS;
+
+    public bool isDead;
+
+
+    int DirCheck;
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         //grab the seeker component 
         anim = GetComponent<Animator>();
         seeker = GetComponent<Seeker>();
@@ -85,6 +91,7 @@ public class enemy : MonoBehaviour
         //Debug.Log("x: " + Mathf.Round(direction.x)  + " y: " + Mathf.Round(direction.y));
         if (Mathf.Round(direction.x) == 0 && Mathf.Round(direction.y) == 1)
         {
+            DirCheck = 1;
             //SPAGHETTI CODE WILL FIX SOON -EY
             anim.SetBool("Move4", false);
             anim.SetBool("Move2", false);
@@ -95,6 +102,7 @@ public class enemy : MonoBehaviour
         }
         else if (Mathf.Round(direction.x) == 0 && Mathf.Round(direction.y) == -1)
         {
+            DirCheck = 2;
             //SPAGHETTI CODE WILL FIX SOON -EY
             anim.SetBool("Move", false);
             anim.SetBool("Move4", false);
@@ -105,6 +113,7 @@ public class enemy : MonoBehaviour
         }
         else if (Mathf.Round(direction.x) == -1 && Mathf.Round(direction.y) == 0)
         {
+            DirCheck = 3;
             //SPAGHETTI CODE WILL FIX SOON -EY
             anim.SetBool("Move", false);
             anim.SetBool("Move2", false);
@@ -115,6 +124,7 @@ public class enemy : MonoBehaviour
         }
         else if (Mathf.Round(direction.x) == 1 && Mathf.Round(direction.y) == 0)
         {
+            DirCheck = 4;
             //SPAGHETTI CODE WILL FIX SOON -EY
             anim.SetBool("Move3", false);
             anim.SetBool("Move", false);
@@ -134,12 +144,43 @@ public class enemy : MonoBehaviour
             currentwaypoint++; 
         }
     }
-
+    
     private void Update()
     {
-        if (health < 0) {
-            Destroy(this.gameObject);
-            GameManager.money += mon; 
+        if (health < 0)
+        {
+            if (DirCheck == 1)
+            {
+                anim.Play("JumboDeathUp");
+                anim.Play("JuggerDeathUp");
+                anim.Play("JumperDeathUp");
+                Destroy(this.gameObject, 0.5f);
+                GameManager.money += mon;
+            }
+            else if (DirCheck == 2)
+            {
+                anim.Play("JumboDeathDown");
+                anim.Play("JuggerDeathDown");
+                anim.Play("JumperDeathDown");
+                Destroy(this.gameObject, 0.5f);
+                GameManager.money += mon;
+            }
+            else if (DirCheck == 3)
+            {
+                anim.Play("JumboDeathLeft");
+                anim.Play("JuggerDeathLeft");
+                anim.Play("JumperDeathLeft");
+                Destroy(this.gameObject, 0.5f);
+                GameManager.money += mon;
+            }
+            else if (DirCheck == 4)
+            {
+                anim.Play("JumboDeathRight");
+                anim.Play("JuggerDeathRight");
+                anim.Play("JumperDeathRight");
+                Destroy(this.gameObject, 0.5f);
+                GameManager.money += mon;
+            }
         }
         if (onFire)
         {
