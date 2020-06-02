@@ -42,7 +42,7 @@ public class enemy : MonoBehaviour
     private float timer;
     private bool onFire;
     public float fireDPS;
-
+    public bool moneyadd; 
     public bool isDead;
 
 
@@ -72,6 +72,13 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (health <= 0) {
+            if (!moneyadd)
+            {
+                GameManager.money += mon;
+                moneyadd = true; 
+            }
+        }
         //if path does not exist, probably should not do the other stuff 
         if (path == null) {
             return; 
@@ -147,39 +154,35 @@ public class enemy : MonoBehaviour
     
     private void Update()
     {
-        if (health < 0)
+        if (health <= 0)
         {
             if (DirCheck == 1)
             {
+                Destroy(this.gameObject, 0.5f);
                 anim.Play("JumboDeathUp");
                 anim.Play("JuggerDeathUp");
                 anim.Play("JumperDeathUp");
-                Destroy(this.gameObject, 0.5f);
-                GameManager.money += mon;
             }
             else if (DirCheck == 2)
             {
+                Destroy(this.gameObject, 0.5f);
                 anim.Play("JumboDeathDown");
                 anim.Play("JuggerDeathDown");
                 anim.Play("JumperDeathDown");
-                Destroy(this.gameObject, 0.5f);
-                GameManager.money += mon;
             }
             else if (DirCheck == 3)
             {
+                Destroy(this.gameObject, 0.5f);
                 anim.Play("JumboDeathLeft");
                 anim.Play("JuggerDeathLeft");
                 anim.Play("JumperDeathLeft");
-                Destroy(this.gameObject, 0.5f);
-                GameManager.money += mon;
             }
             else if (DirCheck == 4)
             {
+                Destroy(this.gameObject, 0.5f); 
                 anim.Play("JumboDeathRight");
                 anim.Play("JuggerDeathRight");
                 anim.Play("JumperDeathRight");
-                Destroy(this.gameObject, 0.5f);
-                GameManager.money += mon;
             }
         }
         if (onFire)

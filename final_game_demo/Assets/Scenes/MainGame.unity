@@ -3068,7 +3068,7 @@ MonoBehaviour:
   Enemy: {fileID: 4090488157621039032, guid: c92b78d235199364db20d6c5f7c8b19e, type: 3}
   Enemy2: {fileID: 5599013416712088601, guid: 4175046b6b27aa4429a04f0f04e9d124, type: 3}
   Enemy3: {fileID: 914031983361053415, guid: 5b710d07ce950284e97c17539c1e80ac, type: 3}
-  WaveCounter: 14
+  WaveCounter: 0
   WaveMax: 0
   EnemyCounter: 0
   EStag: 3
