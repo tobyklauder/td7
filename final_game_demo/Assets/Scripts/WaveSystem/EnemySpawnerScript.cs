@@ -152,10 +152,21 @@ public class EnemySpawnerScript : MonoBehaviour
             }
             else if (WaveCounter <= 20)
             {
-                for (i = 0; i < 20; i++)
+                if (WaveCounter == 19)
                 {
-                    spawnEnemy(2);
-                    yield return new WaitForSeconds(EStag);
+                    for (i = 0; i < 20; i++)
+                    {
+                        spawnEnemy(2);
+                        yield return new WaitForSeconds(EStag);
+                    }
+                }
+                else
+                {
+                    for (i = 0; i < 20; i++)
+                    {
+                        spawnEnemy(3);
+                        yield return new WaitForSeconds(EStag);
+                    }
                 }
             }
         }

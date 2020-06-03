@@ -180,13 +180,17 @@ MonoBehaviour:
   down: {fileID: 21300000, guid: 2cc01e7e466dda444b5ee51efffc03f8, type: 3}
   up: {fileID: 21300000, guid: e3c6f1ffe16f3f548a86d327be78351b, type: 3}
   render: {fileID: 0}
-  health: 4
+  health: 8
   mon: 400
   target: {fileID: 8161649032283344413, guid: 0fa498bb720d3d84a87c1178b0942330, type: 3}
   speed: 100
   nextwaypointdist: 1
   timeOnFire: 1
+  timer: 0
+  onFire: 0
   fireDPS: 0.5
+  moneyadd: 0
+  isDead: 0
 --- !u!114 &1988055810058933406
 MonoBehaviour:
   m_ObjectHideFlags: 0

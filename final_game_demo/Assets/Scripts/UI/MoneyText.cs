@@ -8,7 +8,7 @@ public class MoneyText : MonoBehaviour
     public void moneyCount()
     {
         Text myText = GetComponent<Text>();
-        myText.text = "Money: " + GameManager.money.ToString();
+        myText.text = GameManager.money.ToString();
     }
 
     // Start is called before the first frame update
