@@ -2619,8 +2619,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277889556}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -7.54, y: -5.334, z: 0.7675257}
-  m_LocalScale: {x: 1.9949571, y: 6.8249164, z: 1}
+  m_LocalPosition: {x: -7.478, y: -6.351, z: 0.7675257}
+  m_LocalScale: {x: 4.0298133, y: 6.947765, z: 1}
   m_Children: []
   m_Father: {fileID: 1164175241}
   m_RootOrder: 2
@@ -3961,10 +3961,10 @@ RectTransform:
   m_Father: {fileID: 92771600}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -459, y: 145}
-  m_SizeDelta: {x: 67.3, y: 67.3}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 14, y: -126}
+  m_SizeDelta: {x: 67.29999, y: 67.29999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1764398148
 MonoBehaviour:
@@ -5775,6 +5775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433901446869891187, guid: 8197e155463021b47812a90bf8e73b0e,
+        type: 3}
+      propertyPath: m_Text
+      value: upgrade
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8197e155463021b47812a90bf8e73b0e, type: 3}

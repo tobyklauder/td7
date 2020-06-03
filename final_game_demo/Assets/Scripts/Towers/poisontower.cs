@@ -9,7 +9,7 @@ public class poisontower : MonoBehaviour
     public Collider2D[] colliders; 
     public int radius = 2;
     public bool slowenemy;
-    public float damage = 0.01f;
+    public float damage = 0.005f;
     public int view = 0; 
     public int pathone = 0;
     public int pathtwo = 0;

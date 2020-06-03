@@ -290,7 +290,7 @@ public class GameManager : MonoBehaviour
             if (selected.GetComponent<poisontower>().pathtwo == 0) {
                 if (money >= 100)
                 {
-                    selected.GetComponent<poisontower>().damage += 0.01f;
+                    selected.GetComponent<poisontower>().damage += 0.002f;
                     money -= 100;
                     selected.GetComponent<poisontower>().pathtwo++;
                     upgradeSource.Play(); 
@@ -302,7 +302,7 @@ public class GameManager : MonoBehaviour
             if (selected.GetComponent<poisontower>().pathtwo == 1) {
                 if (money >= 200)
                 {
-                    selected.GetComponent<poisontower>().damage += 0.01f;
+                    selected.GetComponent<poisontower>().damage += 0.002f;
                     money -= 200;
                     selected.GetComponent<poisontower>().pathtwo++;
                     upgradeSource.Play(); 
@@ -314,7 +314,7 @@ public class GameManager : MonoBehaviour
             if (selected.GetComponent<poisontower>().pathtwo == 2) {
                 if (money >= 300)
                 {
-                    selected.GetComponent<poisontower>().damage += 0.01f;
+                    selected.GetComponent<poisontower>().damage += 0.002f;
                     money -= 300;
                     selected.GetComponent<poisontower>().pathtwo++;
                     upgradeSource.Play(); 
@@ -326,7 +326,7 @@ public class GameManager : MonoBehaviour
             if (selected.GetComponent<poisontower>().pathtwo == 3) {
                 if (money >= 400)
                 {
-                    selected.GetComponent<poisontower>().damage += 0.01f;
+                    selected.GetComponent<poisontower>().damage += 0.002f;
                     money -= 400;
                     selected.GetComponent<poisontower>().pathtwo++;
                     upgradeSource.Play(); 
