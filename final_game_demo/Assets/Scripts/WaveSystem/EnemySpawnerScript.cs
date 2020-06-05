@@ -179,11 +179,11 @@ public class EnemySpawnerScript : MonoBehaviour
         EnemyCounter = GameObject.FindObjectsOfType<enemy>().Length;
         if (WaveCounter >= 21)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
         else if (GameManager.health == 0)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
 
         else if (EnemyCounter == 0)
