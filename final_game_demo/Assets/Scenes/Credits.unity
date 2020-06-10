@@ -680,18 +680,18 @@ MonoBehaviour:
   m_Text: 'Credits:
 
 
-    Programming: Toby Klauder, Ethan Young, Adeline Braun
+    Programming: Toby K, Ethan Y, Adeline B
 
 
-    Art:
-    James Kelly, Frank Vanris, Ethan Young
+    Art: James
+    K, Frank V, Ethan Y
 
 
-    Audio: Adeline Braun
+    Audio: Adeline B
 
 
-    Playtesting-Level
-    Design: Isaiah Mackey'
+    Playtesting-Level Design: Isaiah
+    M'
 --- !u!222 &1937124606
 CanvasRenderer:
   m_ObjectHideFlags: 0
